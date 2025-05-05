@@ -1,0 +1,82 @@
+﻿@model AddMemberForm
+
+<div id="addMemberModal" class="mod">
+    <div class="mod-content">
+        <div class="mod-header">
+            <h3>Add Team Member</h3>
+            <button type="button" class="btn-closee" data-close="true"></button>
+        </div>
+
+        <form novalidate method="post" asp-action="Add" asp-controller="Members">
+
+            <div class="image-previewer circle ">
+                <img src="" class="image-preview" />
+                <input asp-for="MemberImage" accept="image/*" class="hide" />
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="MemberName"></label>
+                <div class="field-group">
+                    <input asp-for="MemberName" />
+                    <span asp-validation-for="MemberName"></span>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <div class="field-group">
+                    <input asp-for="Email" />
+                    <span asp-validation-for="Email"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Location"></label>
+                <div class="field-group">
+                    <input asp-for="Location" />
+                    <span asp-validation-for="Location"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone"></label>
+                <div class="field-group">
+                    <input asp-for="Phone" />
+                    <span asp-validation-for="Phone"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address"></label>
+                <div class="field-group">
+                    <input asp-for="Address" />
+                    <span asp-validation-for="Address"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Födelsedatum</label>
+
+                <select asp-for="Day" class="form-control">
+                    @for (int i = 1; i <= 31; i++)
+                    {
+                        <option value="@i">@i</option>
+                    }
+                </select>
+
+                <select asp-for="Month" class="form-control">
+                    @foreach (var month in System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.MonthNames.Where(m => !string.IsNullOrEmpty(m)).Select((m, i) => new { Text = m, Value = i + 1 }))
+                    {
+                        <option value="@month.Value">@month.Text</option>
+                    }
+                </select>
+
+                <select asp-for="Year" class="form-control">
+                    @for (int y = DateTime.Now.Year; y >= DateTime.Now.Year - 100; y--)
+                    {
+                        <option value="@y">@y</option>
+                    }
+                </select>
+            </div>
+            <button type="submit" class="btn btn-add btn-blue " >Create</button>
+        </form>
+    </div>
+</div>

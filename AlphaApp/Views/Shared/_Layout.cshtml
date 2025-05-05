@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] | Alpha</title>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/a576612222.css" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+  
+</head>
+<body>
+    <div class="portal">
+        <div class="logotype">
+            @await Html.PartialAsync("Partials/_LinkLogotype")
+        </div>
+        <div class="side">
+            @await Html.PartialAsync("Partials/_NavLinks")
+        </div>
+        <div class="top">
+            @await Html.PartialAsync("Partials/_TopHeader")
+        </div>
+        <div class="main">
+            @RenderBody()
+        </div>
+    </div>
+      
+     
+
+ 
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

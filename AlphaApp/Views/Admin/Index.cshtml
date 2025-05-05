@@ -1,0 +1,36 @@
+﻿
+
+
+
+
+
+@using System.Security.Claims
+@{
+    ViewData["Title"] = "Dashboard";
+}
+@{
+    var userRoles = User.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value).ToList();
+    var displayName = User.Claims.FirstOrDefault(x => x.Type == "DisplayName")?.Value;
+}
+<section id="dashboard">
+    <header>
+        <h1> @ViewData["Title"]</h1>
+        @if (!string.IsNullOrEmpty(displayName))
+        {
+            <h2>Welcome, @displayName!</h2>
+        }
+    </header>
+
+    <div class="card">
+        <ul>
+            @foreach(var claim in User.Claims)
+            {
+                <li>@claim.Type : @claim.Value</li>
+                
+            }
+            
+        </ul>
+     
+
+    </div>
+</section>

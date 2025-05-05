@@ -1,0 +1,117 @@
+﻿@using System.Security.Claims
+
+
+
+@{
+    var userRoles = User.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value).ToList();
+    var displayName = User.Claims.FirstOrDefault(x => x.Type == "DisplayName")?.Value;
+}
+
+
+<header id="header">
+    <form class="search-form" method="get" asp-controller="" asp-action="" novalidate>
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" class="form-search-input" placeholder="Search anything..." />
+    </form>
+    <div class="notification-container">
+        <button type="button" data-type="dropdown" data-target="#notifications-dropdown" class="btn-notification">
+            <i class=" dot dot-red fa-solid fa-circle "></i>
+            <i class="fa-duotone fa-solid fa-bell" style="--fa-primary-opacity: 0.4; --fa-secondary-opacity: 1;"></i>
+        </button>
+        <div id="notifications-dropdown" class="dropdown ">
+            <div class="dropdown-header">
+                <h4>Notifications</h4>
+                <div class="noti badge-red">0</div>
+             </div>
+            <div class="noti-divider"></div>
+            <div class="notifications"  data-notification-type="user">
+                <div class="notification">
+                    <div class="project-image">
+                        <img src="@Url.Content("~/images/user_img.svg" )" alt="Alternate Text" />
+                    </div>
+                    <span class="message">Ali Jalali signed in.</span>
+                    <span class="time">10 min ago</span>
+                    <button class="btn-closee"></button>
+                </div>
+                <div class="notification">
+                    <div class="project-image">
+                        <img src="@Url.Content("~/images/user_img.svg" )" alt="Alternate Text" />
+                    </div>
+                    <span class="message">Alex Rask signed in.</span>
+                    <span class="time">5 min ago</span>
+                    <button class="btn-closee"></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="account-container  ">
+        <button type="button" data-type="dropdown" data-target="#account-dropdown" class="btn-account">
+            <img src="@Url.Content("~/images/user_img.svg" )" alt="Alternate Text" />
+        </button>
+        <div id="account-dropdown" class="dropdown  ">
+            <div class="dropdown-header">
+                <div class="account-name">
+                    <img src="@Url.Content("~/images/user_img.svg" )" alt="Alternate Text" />
+                   
+
+                    <div class="account-nav text-center">
+                        <div class="role">
+                            <span class="muted">Current Role:</span>
+                            @if (userRoles.Any())
+                            {
+                                <span>@string.Join(", ", userRoles)</span>
+                            }
+                        </div>
+                        <div>
+                            <small>@User.Identity?.Name</small>
+
+                        </div>
+
+                    </div>
+                 
+
+                        
+                    
+                    
+                       
+                    
+                    
+                </div>
+            </div>
+            <div class="dropdown-body">
+                <nav class="drop-options">
+                    <div class="dropdown-option" >
+                        <label for="darkModeToggle" class="switch-label">
+                            <i class="fa-duotone fa-solid fa-cog"></i>
+                            <span>Dark Mode</span>
+                        </label>
+                        <label class="switch">
+                            <input type="checkbox" id="darkModeToggle" data-type="toggle" data-func="darkmode"/>
+                             
+                            <span class="slider"></span>
+                        </label>
+                        
+                    </div>
+
+                </nav>
+                <div class="noti-divider"></div>
+                <nav class="drop-action">
+                    <a class="dropdown-action" href="#">
+                        <i class="fa-solid fa-wrench"></i>
+                        <span>Profile Setting</span>
+                    </a>
+                    <a asp-action="Logout" asp-controller="Auth" class="dropdown-action">
+                        <i class="fa-dutone fa-solid fa-right-from-bracket"></i>
+                        <span>Logout</span>
+                    </a>
+                   
+                </nav>
+                
+            </div>
+        </div>
+    </div>
+    
+</header>

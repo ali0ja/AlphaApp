@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\images\avatar-templates.svg" />
+    <Content Remove="wwwroot\images\Avatar.svg" />
+    <Content Remove="wwwroot\images\denid.PNG" />
+    <Content Remove="wwwroot\images\google-icon.svg" />
+    <Content Remove="wwwroot\images\Image.svg" />
+    <Content Remove="wwwroot\images\Logo.png" />
+    <Content Remove="wwwroot\images\Notification.svg" />
+    <Content Remove="wwwroot\images\Setting.svg" />
+    <Content Remove="wwwroot\images\user_img.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="9.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj" />
+    <ProjectReference Include="..\Data\Data.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="wwwroot\images\avatar-templates.svg" />
+    <Resource Include="wwwroot\images\Avatar.svg" />
+    <Resource Include="wwwroot\images\denid.PNG" />
+    <Resource Include="wwwroot\images\google-icon.svg" />
+    <Resource Include="wwwroot\images\Image.svg" />
+    <Resource Include="wwwroot\images\Logo.png" />
+    <Resource Include="wwwroot\images\Notification.svg" />
+    <Resource Include="wwwroot\images\Setting.svg" />
+    <Resource Include="wwwroot\images\user_img.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+</Project>

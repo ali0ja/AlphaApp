@@ -1,0 +1,66 @@
+﻿
+@{
+
+    ViewData["Title"] = "Projects";
+}
+@* <partial name="Partials/Sections/_AddProjectForm" />  *@
+
+<section id="projects">
+    <header>
+        <h2>Projects</h2>
+        <button type="button" data-modal="true" data-target="#addProjectModal" class="btn btn-add btn-blue">Add Projects</button>
+    </header>
+    
+
+    <main>
+    <section class="projects">
+        
+        <div class="tabs">
+            <button class="active">All [1]</button>
+            <button>Started [1]</button>
+            <button>Completed [0]</button>
+           
+        </div>
+        <div class="divider"></div>
+        <div class="cards">
+            <!-- Sample Project Card -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <img class="project-logo" src="@Url.Content("~/images/image.svg")" alt="Logo" />
+                        <div class="card-title">
+                            <h3>Website Redesign</h3>
+                            <p class="company">GitLab Inc.</p>
+                        </div>
+                        <div class="dropdown-wrapper">
+                            <button class="card-menu"><i class="fa-solid fa-ellipsis"></i></button>
+                            <ul class="dropdown-menu">
+                                <li><button> Edit</button></li>
+                                <li><button>Add Member</button></li>
+                                <li><button class=" btn-delete danger" ">Delete</button></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p class="description">It is necessary to develop a website redesign in a corporate style.</p>
+
+                    <div class="card-footer">
+                        <span class="badge time-left">
+                            <i class="fa-regular fa-clock"></i> 1 week left
+                        </span>
+                        <div class="avatars">
+                            <img class="avatar" src="@Url.Content("~/images/user_img.svg" )" alt="User 1">
+                            <img class="avatar" src="@Url.Content("~/images/user_img.svg" )" alt="User 2">
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            <!-- Add other cards similarly -->
+                
+        </div>
+    </section>
+    </main>
+
+</section> 
+ 
